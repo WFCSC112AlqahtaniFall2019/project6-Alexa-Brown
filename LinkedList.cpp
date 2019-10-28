@@ -8,32 +8,36 @@ LinkedList::LinkedList() {
 }
 
 LinkedList::~LinkedList(){
-
+    cout << "Destructor called" << endl;
+    delete head;
 }
 
 void LinkedList::append(int item) {
-    head = nullptr;
-    if (head){
-        head->next = new Node(item);
-    }
-    else {
+    if (head == nullptr) {
+        head = new Node (item);
+    } else {
         Node* current = head;
         while (current->next != nullptr){
             current = current->next;
-            current->next = new Node(item);
         }
+        current->next = new Node (item);
     }
 }
+
 
 void LinkedList::printList() const{
    Node* current = head;
    if(! current){
-       cout << "Empty list" << endl;
+       cout << "Empty list." << endl;
    }
    else{
        while (current){
-           cout << current->value << endl;
+           cout << current->value << " ";
            current = current->next;
        }
    }
+}
+
+void InsertionSort(Node* head){
+    
 }
