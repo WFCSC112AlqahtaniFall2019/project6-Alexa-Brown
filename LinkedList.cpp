@@ -3,7 +3,7 @@
 #include "LinkedList.h"
 using namespace std;
 
-//can't use binary search because we already know the size of the vector
+//can't use binary search because we already know the size of the vector but you can't divide the linked lists into smaller and smaller parts to sort
 
 LinkedList::LinkedList() { //default constructor
     Node(0, nullptr);
