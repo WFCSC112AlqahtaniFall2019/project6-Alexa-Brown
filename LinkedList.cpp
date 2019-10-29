@@ -3,9 +3,18 @@
 #include "LinkedList.h"
 using namespace std;
 
-LinkedList::LinkedList() {
+//can't use binary search because we already know the size of the vector
+
+LinkedList::LinkedList() { //default constructor
     Node(0, nullptr);
 }
+
+LinkedList::LinkedList(const LinkedList& L){ //copy constructor
+    //have to loop over L in order to copy it, creating new nodes
+    head = new Node;
+    *head = *(L.head);
+}
+//need copy assignment operator
 
 LinkedList::~LinkedList(){
     cout << "Destructor called" << endl;
@@ -43,17 +52,30 @@ void LinkedList::printList() const{
 
 void LinkedList:: InsertionSort() {
     Node *current = head;
-    Node *nextNode = current->next;
-    Node *other = head->next;
     Node *temp = head;
     Node *previous = head;
+    Node *other = head->next;
+    Node* otherprevious = head;
     //current = head;
     // current->next = head->next;
+
     while (current != nullptr) {
-        if(current->value < current->next->value){
-            current = current->next;
+        if(current->value > current->next->value){
+            temp = current;
+            current = current->next->next;
+            previous->next = temp;
+            while(other!= nullptr){
+                if (other->value < temp->value){
+                    otherprevious->next = temp;
+                    temp->next = other;
+                }
+                other = other->next;
+            }
         }
-        else if(current->value > current->next->value) {
+       //if(current->value < current->next->value){
+            current = current->next;
+        //}
+       /*  if(current->value > current->next->value) {
             while (other != nullptr) {
                 if (other->value > previous->value) {
                     previous->next = temp;
@@ -62,7 +84,7 @@ void LinkedList:: InsertionSort() {
                 other = other->next;
             }
             current = current->next;
-        }
+        }*/
        /* other = other->next;
         if ((previous->value < temp->value) && (temp->value > other->value)){
             previous->next = temp;

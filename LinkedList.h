@@ -10,7 +10,7 @@ class LinkedList {
 public:
 
     LinkedList(); //default constructor
-
+    LinkedList(const LinkedList& L);
     ~LinkedList();
     void InsertionSort();
     void append(int item);
