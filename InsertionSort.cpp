@@ -26,11 +26,16 @@ int main() {
         int a = v[i];
         list.append(a);
     }
+    cout << "Original linked list"<< endl;
+    list.printList();
 
 
     // binary insertion sort
     insertionSort(v, v.size());
+    cout << "Hi" << endl;
+    list.InsertionSort();
 
+    cout << "Hello" << endl;
     // check if sorted
     for (int i = 1; i < v.size(); i++) {
         assert(v[i-1] <= v[i]);

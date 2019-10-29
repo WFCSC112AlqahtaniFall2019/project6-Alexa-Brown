@@ -12,10 +12,11 @@ public:
     LinkedList(); //default constructor
 
     ~LinkedList();
-    void InsertionSort(Node* head);
+    void InsertionSort();
     void append(int item);
     bool remove(int item);
     void printList() const;
+   // void InsertAfter;
 
 
 private:

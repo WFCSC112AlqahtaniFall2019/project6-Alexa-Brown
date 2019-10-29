@@ -3,13 +3,14 @@
 
 class Node {
 public:
+    friend class LinkedList;
     // Node constructor
     Node(int v = 0, Node* n = nullptr)
     {
         value = v;
         next = n;
     }
-    friend class LinkedList;
+
 private:
 
     int value;
