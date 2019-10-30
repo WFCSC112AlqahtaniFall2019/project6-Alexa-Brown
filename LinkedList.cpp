@@ -11,39 +11,27 @@ LinkedList::LinkedList() { //default constructor
 
 LinkedList::LinkedList(const LinkedList& L){ //copy constructor
     //have to loop over L in order to copy it, creating new nodes
-    Node* current = head;
+    cout<<"Copy constructor"<<endl;
     Node* New = L.head;
-    while(current != nullptr){\
+    while(New != nullptr){
         append(New->value);
-        current = current->next;
+        New=New->next;
     }
 
 }
 
-LinkedList& LinkedList::operator = (const LinkedList& rhs){ //copy assignment operator
-    Node* temp = head;
-    while (temp->next){
-        head = head->next;
-        delete temp;
-        temp = head;
-    }
-    temp = rhs.head;
-    while(temp){
-        append(temp->value);
-        temp = temp->next;
-    }
+LinkedList& LinkedList::operator = ( LinkedList rhs){ //copy assignment operator
+    cout<<"Assignment operator"<<endl;
+    rhs.printList();
+   swap(this->head, rhs.head);
     return *this;
 }
 
 
 LinkedList::~LinkedList(){
     cout << "Destructor called" << endl;
-    Node* current = head;
-    while (current != nullptr){
-        head = head->next;
-        delete current;
-        current = head;
-    }
+   delete head;
+
 }
 
 void LinkedList::append(int item) {

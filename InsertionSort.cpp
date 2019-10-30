@@ -33,7 +33,7 @@ int main() {
     // binary insertion sort
     insertionSort(v, v.size());
     cout << "Hi" << endl;
-//    list.InsertionSort();
+   list.InsertionSort();
 
     cout << "Hello" << endl;
     // check if sorted
@@ -50,7 +50,9 @@ int main() {
 
     cout << "Sorted with Insertion Sort: " << endl;
     list.printList();
-
+    LinkedList l2;
+    l2=list;
+    l2.printList();
     cout << endl;
     // FINISH ME
 
