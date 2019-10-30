@@ -12,6 +12,7 @@ public:
     LinkedList(); //default constructor
     LinkedList(const LinkedList& L); //copy constructor
     ~LinkedList();
+    LinkedList& operator = (const LinkedList& rhs);
     void InsertionSort();
     void append(int item);
     bool remove(int item);
