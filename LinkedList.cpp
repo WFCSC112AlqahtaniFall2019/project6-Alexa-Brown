@@ -81,6 +81,13 @@ void LinkedList:: InsertionSort() {
     Node *previous = head;
     Node *other = head->next;
     Node* otherprevious = head;
+    if (head == nullptr){
+        //if the list is empty, no sorting necessary
+    }
+    if (head->next = nullptr){
+        //if there is only one element in the list, it is already sorted
+    }
+    //otherwise, the list needs to be sorted because it is made up of multiple elements
     //current = head;
     // current->next = head->next;
 

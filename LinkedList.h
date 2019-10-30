@@ -15,7 +15,7 @@ public:
     LinkedList& operator = (const LinkedList& rhs);
     void InsertionSort();
     void append(int item);
-    bool remove(int item);
+    bool remove(int item); //need?
     void printList() const;
 
 
