@@ -50,10 +50,9 @@ int main() {
 
     cout << "Sorted with Insertion Sort: " << endl;
     list.printList();
-    LinkedList l2;
-    l2=list;
-    l2.printList();
+   // LinkedList l2;
+   // l2=list;
+   // l2.printList();
     cout << endl;
-    // FINISH ME
 
 }

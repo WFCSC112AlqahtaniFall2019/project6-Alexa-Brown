@@ -45,7 +45,27 @@ void LinkedList::append(int item) {
         current->next = new Node (item);
     }
 }
-
+bool LinkedList::remove(int item){
+    Node* current = head;
+    Node* previous = head;
+    if (head == nullptr){
+        return false; // empty, do nothing
+    }
+    if (head->value == item){
+        head = head->next;
+        current->next = nullptr;
+        delete current;
+        return true; //deleted
+    }
+    while (current != nullptr){
+        previous->next = current->next;
+        current->next = nullptr;
+        delete current;
+        return true; //deleted
+    }
+    previous = previous->next;
+    current = current->next;
+}
 
 void LinkedList::printList() const{
    Node* current = head;
@@ -64,11 +84,13 @@ void LinkedList::printList() const{
 
 
 void LinkedList:: InsertionSort() {
-    Node *current = head;
-    Node *temp = head;
+    Node *current = head->next;
+    int count = 0;
+   // Node *temp = head;
+    //Node* temptoDelete;
     Node *previous = head;
-    Node *other = head->next;
-    Node* otherprevious = head;
+    //Node *other = head->next;
+   // Node* otherprevious = head;
     if (head == nullptr){
         //if the list is empty, no sorting necessary
     }
@@ -77,16 +99,42 @@ void LinkedList:: InsertionSort() {
     }
     else{
         //otherwise, the list needs to be sorted because it is made up of multiple elements
-        Node* current = head->next; //to look for out of sort number
-        Node* previous = head;
         Node* temp = head;
-        Node* otherCurrent = head; //to sort that number
+        Node* otherCurrent = head->next; //to sort that number
         Node* otherPrevious = head;
+    while (current != nullptr){
+        if (previous->value > current->value) {
+            temp = current;
+            cout << "Here" << endl;
+            otherCurrent = head->next;
+            otherPrevious = head;
+            while (otherCurrent != nullptr) {
+                if ((otherPrevious->value < temp->value) && (temp->value < otherCurrent->value)) {
+                    otherCurrent->next = otherCurrent->next->next;
+                    temp->next = otherCurrent;
+                    otherPrevious->next = temp;
+                }
+                cout << "sorting" << endl;
 
+                if (temp->value < head->value) {
+                otherCurrent->next = otherCurrent->next->next;
+                temp->next = head;
+                head = temp;
+                    for (int i = 0; i < count; ++i) {
+                        current = current->next;
+                    }
+            }
+                otherPrevious = otherPrevious->next;
+                otherCurrent = otherCurrent->next;
+        }
+        }
+        previous = previous->next;
+        current = current->next;
+        count++;
+    }
 
 
     }
-    //otherwise, the list needs to be sorted because it is made up of multiple elements
 
     //current = head;
     // current->next = head->next;
