@@ -10,13 +10,12 @@ class LinkedList {
 public:
 
     LinkedList(); //default constructor
-    LinkedList(const LinkedList& L);
+    LinkedList(const LinkedList& L); //copy constructor
     ~LinkedList();
     void InsertionSort();
     void append(int item);
     bool remove(int item);
     void printList() const;
-   // void InsertAfter;
 
 
 private:

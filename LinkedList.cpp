@@ -11,8 +11,13 @@ LinkedList::LinkedList() { //default constructor
 
 LinkedList::LinkedList(const LinkedList& L){ //copy constructor
     //have to loop over L in order to copy it, creating new nodes
-    head = new Node;
-    *head = *(L.head);
+    Node* current = head;
+    Node* New = L.head;
+    while(current != nullptr){\
+        append(New->value);
+        current = current->next;
+    }
+
 }
 //need copy assignment operator
 
@@ -59,7 +64,7 @@ void LinkedList:: InsertionSort() {
     //current = head;
     // current->next = head->next;
 
-    while (current != nullptr) {
+  /*  while (current != nullptr) {
         if(current->value > current->next->value){
             temp = current;
             current = current->next->next;
@@ -112,5 +117,5 @@ void LinkedList:: InsertionSort() {
             }
             other = other->next;
         }*/
-    }
+   // }
 }

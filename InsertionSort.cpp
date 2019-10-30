@@ -33,7 +33,7 @@ int main() {
     // binary insertion sort
     insertionSort(v, v.size());
     cout << "Hi" << endl;
-    list.InsertionSort();
+//    list.InsertionSort();
 
     cout << "Hello" << endl;
     // check if sorted

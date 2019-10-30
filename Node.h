@@ -10,7 +10,9 @@ public:
         value = v;
         next = n;
     }
-
+    ~Node() {
+        delete next;
+    }
 private:
 
     int value;
