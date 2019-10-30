@@ -86,6 +86,7 @@ void LinkedList::printList() const{
 void LinkedList:: InsertionSort() {
     Node *current = head->next;
     int count = 0;
+    int othercount = 0;
    // Node *temp = head;
     //Node* temptoDelete;
     Node *previous = head;
@@ -120,16 +121,25 @@ void LinkedList:: InsertionSort() {
                 otherCurrent->next = otherCurrent->next->next;
                 temp->next = head;
                 head = temp;
-                    for (int i = 0; i < count; ++i) {
-                        current = current->next;
-                    }
+
             }
-                otherPrevious = otherPrevious->next;
-                otherCurrent = otherCurrent->next;
+                otherCurrent = head->next;
+                otherPrevious = head;
+                for (int i = 0; i < count; i++) {
+                    otherPrevious = otherPrevious->next;
+                    otherCurrent = otherCurrent->next;
+                }
+
         }
         }
-        previous = previous->next;
-        current = current->next;
+        current = head->next;
+        previous = head;
+        for (int i = 0; i < count; i++) {
+            current = current->next;
+            previous = previous->next;
+        }
+        //previous = previous->next;
+        //current = current->next;
         count++;
     }
 
