@@ -99,12 +99,11 @@ void LinkedList:: InsertionSort() {
         Node* temp = head;
         Node* otherCurrent = head->next; //to sort that number
         Node* otherPrevious = head;
-        //bool ifentered = false;
         while (current != nullptr){
             sorted = false;
             if (previous->value > current->value) {
                 temp = current;
-                cout << "Here" << endl;
+               // cout << "Here" << endl;
                 otherCurrent = head->next;
                 otherPrevious = head;
                 while (!sorted && otherCurrent != nullptr) {
@@ -113,14 +112,9 @@ void LinkedList:: InsertionSort() {
                         temp->next = otherCurrent;
                         otherPrevious->next = temp;
                         sorted = true;
+
                     }
-
-                    /*if(ifentered){
-                        sorted = true;
-                    }*/
-                    cout << "sorting" << endl;
-
-                    if (temp->value < head->value) {
+                    else if (temp->value < head->value) {
                        previous->next = previous->next->next;
                         temp->next = head;
                         head = temp;
@@ -131,18 +125,7 @@ void LinkedList:: InsertionSort() {
                     }
                     otherCurrent = otherCurrent->next;
                     otherPrevious = otherPrevious->next;
-                    /*otherCurrent = otherCurrent->next;
-                    otherPrevious = otherPrevious->next;
-                    /*otherCurrent = head->next;
-                    otherPrevious = head;
-                    for (int i = 0; i < othercount; i++) {
-                        otherPrevious = otherPrevious->next;
-                        otherCurrent = otherCurrent->next;
-                    }
-                    othercount++;*/
                 }
-
-                printList();
             }
             current = head->next;
             previous = head;
@@ -150,8 +133,6 @@ void LinkedList:: InsertionSort() {
                 current = current->next;
                 previous = previous->next;
             }
-            //previous = previous->next;
-           // current = current->next;
             count++;
         }
     }
