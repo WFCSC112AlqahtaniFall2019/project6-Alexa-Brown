@@ -17,6 +17,7 @@ public:
     void append(int item);
     bool remove(int item); //need?
     void printList() const;
+    bool sorted = false;
 
 
 private:

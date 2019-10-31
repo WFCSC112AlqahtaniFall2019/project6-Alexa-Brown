@@ -87,6 +87,7 @@ void LinkedList:: InsertionSort() {
     Node *current = head->next;
     int count = 0;
     int othercount = 0;
+    //bool sorted = false;
     // Node *temp = head;
     //Node* temptoDelete;
     Node *previous = head;
@@ -103,34 +104,49 @@ void LinkedList:: InsertionSort() {
         Node* temp = head;
         Node* otherCurrent = head->next; //to sort that number
         Node* otherPrevious = head;
+        bool ifentered = false;
         while (current != nullptr){
+            bool sorted = false;
             if (previous->value > current->value) {
                 temp = current;
                 cout << "Here" << endl;
                 otherCurrent = head->next;
                 otherPrevious = head;
-                while (otherCurrent != nullptr) {
+                while (!sorted) {
                     if ((otherPrevious->value < temp->value) && (temp->value < otherCurrent->value)) {
                         otherCurrent->next = otherCurrent->next->next;
                         temp->next = otherCurrent;
                         otherPrevious->next = temp;
+                        sorted = true;
                     }
+                    /*if(ifentered){
+                        sorted = true;
+                    }*/
                     cout << "sorting" << endl;
 
                     if (temp->value < head->value) {
-                        otherCurrent->next = otherCurrent->next->next;
+                       previous->next = previous->next->next;
                         temp->next = head;
                         head = temp;
-
+                        sorted = true;
                     }
-                    otherCurrent = head->next;
+                    else{
+                        sorted = false;
+                    }
+                    otherCurrent = otherCurrent->next;
+                    otherPrevious = otherPrevious->next;
+                    /*otherCurrent = otherCurrent->next;
+                    otherPrevious = otherPrevious->next;
+                    /*otherCurrent = head->next;
                     otherPrevious = head;
                     for (int i = 0; i < othercount; i++) {
                         otherPrevious = otherPrevious->next;
                         otherCurrent = otherCurrent->next;
                     }
-                    othercount++;
+                    othercount++;*/
                 }
+
+                printList();
             }
             current = head->next;
             previous = head;
@@ -139,13 +155,8 @@ void LinkedList:: InsertionSort() {
                 previous = previous->next;
             }
             //previous = previous->next;
-            //current = current->next;
+           // current = current->next;
             count++;
         }
-
-
     }
-
-
-
 }
