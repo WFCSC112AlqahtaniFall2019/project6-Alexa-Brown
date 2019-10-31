@@ -1,7 +1,12 @@
+/* Alexa Brown
+ * CSC 112
+ * Due 10/31/19
+*/
+
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <time.h>
+#include <ctime>
 #include "BinaryInsertionSort.h"
 #include "LinkedList.h"
 #include "Node.h"
@@ -27,6 +32,7 @@ int main() {
         int a = v[i];
         list.append(a);
     }
+
     cout << "Original linked list"<< endl;
     list.printList();
 
@@ -57,7 +63,7 @@ int main() {
 
     cout << "Sorted with Insertion Sort: " << endl;
     list.printList();
-   // LinkedList l2; checking to ensure that the big three are working
+   // LinkedList l2;    checking to ensure that the big three are working
    // l2=list;
    // l2.printList();
     cout << endl;
@@ -66,8 +72,8 @@ int main() {
     double elapsed_insertionsort = double(end_insertionsort - start_insertionsort) / CLOCKS_PER_SEC;
 
 
-    cout << "Time to use Binary Sort: " << elapsed_binarysort << endl;
-    cout << "Time to use Insertion Sort: " << elapsed_insertionsort << endl;
+  //  cout << "Time to use Binary Sort: " << elapsed_binarysort << endl;
+    //cout << "Time to use Insertion Sort: " << elapsed_insertionsort << endl;
 
 
 }

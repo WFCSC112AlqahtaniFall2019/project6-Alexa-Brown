@@ -1,3 +1,8 @@
+/* Alexa Brown
+ * CSC 112
+ * Due 10/31/19
+*/
+
 #ifndef BINARYINSERTIONSORT_H
 #define BINARYINSERTIONSORT_H
 

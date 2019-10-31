@@ -1,3 +1,8 @@
+/* Alexa Brown
+ * CSC 112
+ * Due 10/31/19
+*/
+
 #include <iostream>
 #include "Node.h"
 using namespace std;

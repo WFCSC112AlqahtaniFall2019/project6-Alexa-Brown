@@ -1,3 +1,8 @@
+/* Alexa Brown
+ * CSC 112
+ * Due 10/31/19
+*/
+
 #ifndef NODE_H
 #define NODE_H
 
