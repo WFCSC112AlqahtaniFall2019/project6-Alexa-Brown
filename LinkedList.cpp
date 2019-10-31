@@ -87,38 +87,34 @@ void LinkedList:: InsertionSort() {
     Node *current = head->next;
     int count = 0;
     int othercount = 0;
-    //bool sorted = false;
-    // Node *temp = head;
-    //Node* temptoDelete;
     Node *previous = head;
-    //Node *other = head->next;
-    // Node* otherprevious = head;
-    if (head == nullptr){
+
+    if (head == nullptr || head->next == nullptr){
         //if the list is empty, no sorting necessary
-    }
-    if (head->next == nullptr){
         //if there is only one element in the list, it is already sorted
+        return;
     }
     else{
         //otherwise, the list needs to be sorted because it is made up of multiple elements
         Node* temp = head;
         Node* otherCurrent = head->next; //to sort that number
         Node* otherPrevious = head;
-        bool ifentered = false;
+        //bool ifentered = false;
         while (current != nullptr){
-            bool sorted = false;
+            sorted = false;
             if (previous->value > current->value) {
                 temp = current;
                 cout << "Here" << endl;
                 otherCurrent = head->next;
                 otherPrevious = head;
-                while (!sorted) {
+                while (!sorted && otherCurrent != nullptr) {
                     if ((otherPrevious->value < temp->value) && (temp->value < otherCurrent->value)) {
-                        otherCurrent->next = otherCurrent->next->next;
+                        previous->next = previous->next->next;
                         temp->next = otherCurrent;
                         otherPrevious->next = temp;
                         sorted = true;
                     }
+
                     /*if(ifentered){
                         sorted = true;
                     }*/
